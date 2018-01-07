@@ -96,6 +96,14 @@ button[type="button"]:hover {
     color: black;
 }
 
+button#reset-score{
+    margin-top: 15px;
+}
+button#playerB-rename{
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
 div#reset {
     margin-top: 20px;
     text-align: center;

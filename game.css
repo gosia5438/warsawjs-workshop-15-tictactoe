@@ -53,6 +53,20 @@
     border-radius: 15%;
     -webkit-box-shadow: 1px 1px 4px 1px gray inset;
     box-shadow: 1px 1px 4px 1px gray inset;
+    -webkit-animation: animate 3s ease;
+    animation: divanimate 3s ease;
+}
+@-webkit-keyframes divanimate {
+    0% {
+        opacity: .1;
+        -webkit-transform: translateX(-500px);
+        transform: translateX(-500px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
+    }
 }
 
 

@@ -260,6 +260,25 @@ ul li:nth-child(10) {
     -o-animation-delay: .9s;
     animation-delay: .9s;
 }
+ul li:nth-child(11) {
+    -webkit-animation-delay: .9s;
+    -ms-animation-delay: .9s;
+    -o-animation-delay: .9s;
+    animation-delay: 1.1s;
+}
+ul li:nth-child(12) {
+    -webkit-animation-delay: .9s;
+    -ms-animation-delay: .9s;
+    -o-animation-delay: .9s;
+    animation-delay: 1.3s;
+}
+ul li:nth-child(13) {
+    -webkit-animation-delay: .9s;
+    -ms-animation-delay: .9s;
+    -o-animation-delay: .9s;
+    animation-delay: 1.5s;
+}
+
 
 @-webkit-keyframes animate {
     0% {

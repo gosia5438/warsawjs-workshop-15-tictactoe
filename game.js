@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (emptyFields === 0) {
             setTimeout(() => { // to samo co 
-                alert('Tie');
+                alert('Nobody won! End of the game!');
                 initGame();
             }, 100);
             return;

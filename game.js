@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var row2 = fields[3].className + fields[4].className + fields[5].className;
         var row3 = fields[6].className + fields[7].className + fields[8].className;
 
-        var column1 = fields[0].className + fields[2].className + fields[6].className;
+        var column1 = fields[0].className + fields[3].className + fields[6].className;
         var column2 = fields[1].className + fields[4].className + fields[7].className;
         var column3 = fields[2].className + fields[5].className + fields[8].className;
         var diagonal1 = fields[0].className + fields[4].className + fields[8].className;
@@ -74,13 +74,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (boardCheck.includes('blueblueblue')) {
             setTimeout(() => {
-				alert("Red Wins!");
+				alert("Blue Wins!");
 				initGame();
 			}, 100);
             return;
         }
         if(emptyFields === 0) {
-            setTimeout(() => {
+            setTimeout(() => { // to samo co setTimeout(function())
                 alert('Tie');
                 initGame();
             }, 100);

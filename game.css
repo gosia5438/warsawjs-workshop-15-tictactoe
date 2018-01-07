@@ -49,9 +49,12 @@
     height: 100px;
     width: 100px;
     display: inline-block;
-    border: 1px solid grey;
+    border: 1px solid darkgray;
     border-radius: 15%;
+    -webkit-box-shadow: 1px 1px 4px 1px gray inset;
+    box-shadow: 1px 1px 4px 1px gray inset;
 }
+
 
 .board div:hover {
     border: 2px solid #eaeaea;
@@ -88,20 +91,40 @@ button[type="button"] {
     letter-spacing: 3px;
     border-radius: 30px;
     cursor: pointer;
-    background-color: #383B3A;
-    }
 
-button[type="button"]:hover {
-    background-color: #7F8584;
-    color: black;
 }
 
-button#reset-score{
+button#reset-score {
     margin-top: 15px;
+    background-color: #383B3A;
+    font-weight: bold;
 }
-button#playerB-rename{
+
+button#reset-score:hover {
+    color: black;
+    background-color: #7F8584;
+}
+
+button#playerB-rename {
     margin-bottom: 15px;
     margin-top: 5px;
+    background-color: #5a85d4;
+}
+
+button#playerB-rename:hover {
+    background-color: #6ca0ff;
+    color: black;
+    font-weight: bold;
+}
+
+button#playerA-rename {
+    background-color: crimson;
+}
+
+button#playerA-rename:hover {
+    background-color: #FF447B;
+    color: black;
+    font-weight: bold;
 }
 
 div#reset {
@@ -114,7 +137,15 @@ div#reset > p {
     line-height: 30px;
 }
 
+#reset p#playerA-score {
+    color: crimson;
+    font-size: 17px;
+}
 
+#reset p#playerB-score {
+    color: cornflowerblue;
+    font-size: 17px;
+}
 
 
 
@@ -125,7 +156,7 @@ div#reset > p {
 
 
 ul {
-/   position: relative;
+    / position: relative;
     margin: 0;
     padding-bottom: 40px;
     display: -webkit-box;
@@ -204,11 +235,6 @@ ul li:nth-child(10) {
         -webkit-transform: translateX(20px) scale(1.2);
         transform: translateX(20px) scale(1.2);
     }
-    100% {
-        opacity: 1;
-        -webkit-transform: rotateY(0deg) translateX(-10px);
-        transform: rotateY(0deg) translateX(-10px);
-    }
 }
 
 @keyframes animate {
@@ -216,10 +242,17 @@ ul li:nth-child(10) {
         opacity: .1;
         -webkit-transform: rotateY(90deg) translateX(-10px);
         transform: rotateY(90deg) translateX(-10px);
+
+    }
+    10% {
+        color: crimson;
     }
     50% {
         opacity: 1;
         -webkit-transform: translateX(20px) scale(1.2);
         transform: translateX(20px) scale(1.2);
+    }
+    80% {
+        color: cornflowerblue;
     }
 }

@@ -37,10 +37,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     for (let player in names) {
         let renameButton = document.getElementById(`${player}-rename`);
-        renameButton.innerText = `Change name of ${player}`;
+        renameButton.innerText = `Name of ${player}`;
         renameButton.addEventListener('click', function () {
-            names[player] = prompt(`Change name of ${player} to:`);
-            renameButton.innerText = `Change name of ${names[player]}`;
+            names[player] = prompt(`Name of ${player} to:`);
+            renameButton.innerText = `Name of ${names[player]}`;
             displayRoundInformation();
             displayPlayerScore('playerA');
             displayPlayerScore('playerB');

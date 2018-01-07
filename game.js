@@ -2,19 +2,67 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    
+    var resetButton = document.getElementById('reset-score');
+
     var playerClasses = {
         'playerA': 'red',
         'playerB': 'blue'
     };
+    var scores = {
+        'playerA': 0,
+        'playerB': 0
+    }
+
+    //tworzenie zmiennych do zmiany nazwy uzytkownika
+    var names = {
+        'playerA': 'playerA',
+        'playerB': 'playerB'
+    }
+
+
     var currentPlayer;
     var emptyFields;
 
     initGame();
+
+    resetButton.addEventListener('click', function () {
+        scores['playerA'] = 0;
+        scores['playerB'] = 0;
+
+        displayPlayerScore('playerA');
+        displayPlayerScore('playerB');
+    });
+
+    //zmiana nazwy uzytkownia w prompt 
+
+    for (let player in names) {
+        let renameButton = document.getElementById(`${player}-rename`);
+        renameButton.innerText = `Change name of ${player}`;
+        renameButton.addEventListener('click', function () {
+            names[player] = prompt(`Change name of ${player} to:`);
+            renameButton.innerText = `Change name of ${names[player]}`;
+            displayRoundInformation();
+            displayPlayerScore('playerA');
+            displayPlayerScore('playerB');
+        })
+    }
+
+    function displayPlayerScore(player) {
+        var score = document.getElementById(`${player}-score`);
+
+        score.innerHTML = `${names[player]} score: ${scores[player]}`;
+    }
+
+    function updatePlayerScore(player) {
+        scores[player]++;
+    }
+
     function displayRoundInformation() {
         var round = document.getElementById('round-info');
         round.className = playerClasses[currentPlayer];
-        round.innerHTML = `Round for ${currentPlayer}`;
+        round.innerHTML = `Round for ${names[currentPlayer]}`;
+        displayPlayerScore('playerA');
+        displayPlayerScore('playerB');
     }
 
     function initGame() {
@@ -26,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // For each field (div) add function that will run when we click it
         fields.forEach(field => field.addEventListener('click', fieldClickHandler));
-		fields.forEach(field => field.removeAttribute('class'));
+        fields.forEach(field => field.removeAttribute('class'));
         emptyFields = 9;
         displayRoundInformation();
     }
@@ -74,24 +122,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (boardCheck.includes('redredred')) {
             setTimeout(() => {
-				alert("Red Wins!");
-				initGame();
-			}, 100);
+                alert(`${names['playerA']} Wins!`);
+                updatePlayerScore('playerA');
+                initGame();
+            }, 100);
             return;
         }
         if (boardCheck.includes('blueblueblue')) {
             setTimeout(() => {
-				alert("Blue Wins!");
-				initGame();
-			}, 100);
+                alert(`${names['playerB']} Wins!`);
+                updatePlayerScore('playerB');
+                initGame();
+            }, 100);
             return;
         }
-        if(emptyFields === 0) {
+        if (emptyFields === 0) {
             setTimeout(() => { // to samo co 
                 alert('Tie');
                 initGame();
             }, 100);
             return;
-		}
+        }
     }
 });

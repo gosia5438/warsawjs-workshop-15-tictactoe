@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // For each field (div) add function that will run when we click it
         fields.forEach(field => field.addEventListener('click', fieldClickHandler));
+		fields.forEach(field => field.removeAttribute('class'));
         emptyFields = 9;
     }
 
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         if(emptyFields === 0) {
-            setTimeout(() => { // to samo co setTimeout(function())
+            setTimeout(() => { // to samo co 
                 alert('Tie');
                 initGame();
             }, 100);

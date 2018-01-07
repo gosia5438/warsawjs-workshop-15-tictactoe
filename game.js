@@ -2,7 +2,7 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-
+    
     var playerClasses = {
         'playerA': 'red',
         'playerB': 'blue'
@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var emptyFields;
 
     initGame();
+    function displayRoundInformation() {
+        var round = document.getElementById('round-info');
+        round.className = playerClasses[currentPlayer];
+        round.innerHTML = `Round for ${currentPlayer}`;
+    }
 
     function initGame() {
         // Find all divs in .board and make them clieckable fields
@@ -23,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fields.forEach(field => field.addEventListener('click', fieldClickHandler));
 		fields.forEach(field => field.removeAttribute('class'));
         emptyFields = 9;
+        displayRoundInformation();
     }
 
     function fieldClickHandler() {
@@ -36,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         */
         emptyFields--;
         currentPlayer = currentPlayer === 'playerA' ? 'playerB' : 'playerA';
-
+        displayRoundInformation();
         this.removeEventListener('click', fieldClickHandler);
         // zapobiega dwukrotnemu kliknieciu w to samo pole (zmiany koloru)
 

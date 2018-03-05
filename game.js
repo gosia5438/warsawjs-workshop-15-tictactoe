@@ -2,26 +2,26 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    var resetButton = document.getElementById('reset-score');
+    const resetButton = document.getElementById('reset-score');
 
-    var playerClasses = {
+    const playerClasses = {
         'playerA': 'red',
         'playerB': 'blue'
     };
-    var scores = {
+    let scores = {
         'playerA': 0,
         'playerB': 0
     }
 
     //tworzenie zmiennych do zmiany nazwy uzytkownika
-    var names = {
+    let names = {
         'playerA': 'playerA',
         'playerB': 'playerB'
     }
 
 
-    var currentPlayer;
-    var emptyFields;
+    let currentPlayer;
+    let emptyFields;
 
     initGame();
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let renameButton = document.getElementById(`${player}-rename`);
         renameButton.innerText = `Name of ${player}`;
         renameButton.addEventListener('click', function () {
-            names[player] = prompt(`Name of ${player} to:`);
+            names[player] = prompt(`Name of ${player}`);
             renameButton.innerText = `Name of ${names[player]}`;
             displayRoundInformation();
             displayPlayerScore('playerA');
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function displayPlayerScore(player) {
-        var score = document.getElementById(`${player}-score`);
+        let score = document.getElementById(`${player}-score`);
 
         score.innerHTML = `${names[player]} score: ${scores[player]}`;
     }
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function displayRoundInformation() {
-        var round = document.getElementById('round-info');
+        let round = document.getElementById('round-info');
         round.className = playerClasses[currentPlayer];
         round.innerHTML = `Round for ${names[currentPlayer]}`;
         displayPlayerScore('playerA');
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function initGame() {
         // Find all divs in .board and make them clieckable fields
-        var fields = document.querySelectorAll('.board > div');
+        let fields = document.querySelectorAll('.board > div');
 
         //Set current player (to 0 = red player)
         currentPlayer = 'playerA';
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function fieldClickHandler() {
         //Get player class name
-        var playerClass = playerClasses[currentPlayer];
+        let playerClass = playerClasses[currentPlayer];
         this.classList.add(playerClass);
 
         /*Switch players: if 0 switch to 1, if 1 switch to 0 
